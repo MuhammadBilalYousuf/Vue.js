@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  
+<!-- part 1 and 2 -->
+
+<div id="a">
+  <p>{{ name() }} <a v-bind:href="link">Google</a></p>
+</div>
+<script>
+  new Vue({
+    el:'#a',
+    data:{
+      title:'bilal',
+      link: "http://google.com"
+    },
+    methods:{
+      name:function(){
+        return this.title
+      }
+    }
+  })
+</script>
+<hr> 
+</body>
+</html>
+
+ <div id="b">
+    <p v-once> {{ title }} </p> 
+   {{ Name() }} <p> <a v-bind:href="link">Google</a></p>
+         </div>
+         <script>
+           new Vue({
+             el:'#b',
+             data:{
+               title:'hello',
+               link: "http://google.com"
+             },
+             methods:{
+               Name:function(){
+                 this.title = "bilal"
+                 return this.title
+               }
+             }
+             
+           })
+   </script> 
+<hr>
+
+   <div id="c">
+     <h1 v-once>{{title}}</h1>
+    {{ antitle() }}
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p v-html='finishLink'></p>
+
+     
+           </div>
+           <script>
+            new Vue({
+              el: '#c',
+              data:{
+                title: 'hello',
+                link: 'http://google.com',
+                finishLink:  '<a href="http://google.com">Google</a>'
+              },
+              methods:{
+                antitle:function(){
+                  this.title = 'bilal'
+                  return this.title
+                }
+              }
+              
+            })
+     </script> 
+    <hr> 
+
+ <div id="d">
+   <button v-on:click="increase">Click Me</button>
+   <p>{{ counter }}</p>
+  <p v-on:mousemove="updateCoordinate">Coordinates: {{ x }} / {{ y }}</p>
+ </div>
+ <script>
+ new Vue({
+   el:'#d',
+   data:{
+     counter:0,
+     x: 0,
+     y: 0
+   },
+   methods:{
+     increase:function(){
+       this.counter++
+     },
+     updateCoordinate:function(event){
+       this.x = event.clientX;
+       this.y = event.clientY;
+     }
+   }
+ })
+ </script> 
+<hr>
+
+ <div id="e">
+    <button v-on:click="increase(2)">Click to Increase</button>
+    {{counter}}
+    <p v-on:mousemove = "increasecoordinates">Increase: {{x}}/{{y}} 
+    <span v-on:mousemove.stop="">Stop Here</span></p>
+   
+  </div>
+  <script>
+  new Vue({
+    el:'#e',
+    data:{
+      counter:0,
+      x:0,
+      y:0
+    },
+    methods:{
+      increase:function(event){
+        this.counter += event
+      },
+      increasecoordinates:function(event){
+        this.x = event.clientX
+        this.y = event.clientY
+      }
+      // ,
+      // stop:function(event){
+      //   event.stopPropagation()
+      // }
+      }
+    
+  })
+  </script> 
+<hr>
+
+<div id="f">
+    <button v-on:click="increase(2)">Click to Increase</button>
+    <button v-on:click="counter++">Click to Increase</button>
+    {{counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}
+    <p v-on:mousemove = "increasecoordinates">Increase: {{x}}/{{y}} 
+    <span v-on:mousemove.stop="">Stop Here</span></p>
+    <input type="text" v-on:keyup.space.enter="alert">
+  </div>
+  <script>
+  new Vue({  
+    el:'#f',
+    data:{
+      counter:0,
+      x:0,
+      y:0
+    },
+    methods:{
+      increase:function(event){
+        this.counter += event
+      },
+      increasecoordinates:function(event){
+        this.x = event.clientX
+        this.y = event.clientY
+      },
+      alert:function(){
+        alert('Alert Alert') 
+      }
+ 
+      }
+    
+  })
+  </script> 
+ <hr>
+
+
+  <div id="g">
+    <button v-on:click="counter++">Increase Value</button>
+    <button v-on:click="counter--">Decrease Value</button>
+    <button v-on:click="counterSecond++">Increase Second</button>
+    <p>counter: {{counter}} | {{counterSecond}}</p>
+    <p>result: {{result()}} | {{output}}</p>
+    </div>
+    <script>
+    new Vue({  
+      el:'#g',
+      data:{
+        counter: 0,
+        counterSecond: 0
+      },
+      Computed:{
+        output: function(){
+          console.log('Computed');
+          return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5' 
+        }
+      },
+      methods:{
+        result: function(){
+          console.log('Method');
+          return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5' 
+        }
+      }
+     
+    })
+    </script> 
+  <hr>
+
+<div id="h">
+<button v-on:click="counter++">Increase Value</button>
+<button v-on:click="counter--">Decrease Value</button>
+<button v-on:click="counterSecond++">Increase Second</button>
+<p>counter: {{counter}} | {{counterSecond}}</p>
+<p>result: {{result()}} | {{output}}</p>
+</div>
+<script>
+new Vue({  
+  el:'#h',
+  data:{
+    counter: 0,
+    counterSecond: 0
+  },
+  Computed:{
+    output: function(){
+      console.log('Computed');
+      return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5' 
+    }
+  },
+  watch: {
+    counter: function(value){
+      var vm = this;
+      setTimeout(function() {
+        vm.counter = 0;
+      }, 4000);
+    }
+  },
+  methods:{
+    result: function(){
+      console.log('Method');
+      return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5' 
+    }
+  }
+})
+</script>
+<hr>
+
+
+  <div id="i">
+<button @click="change">Click To Change in Apple</button>
+<a :href="link">google</a>
+
+  </div>
+  <script>
+  new Vue({
+    el:'#i',
+    data:{
+      link:'http://google.com' 
+    },
+    methods:{
+      change:function(){
+        this.link = "http://apple.com"
+      }
+    }
+  })
+  </script>  
+<hr>
+
+
+  <div id="j">
+    <div class="demo" @click="attachRed = !attachRed" 
+    :class="divClasses"></div>
+    <div class="demo"
+    :class="{red: attachRed}"></div>
+    <div class="demo" 
+    :class="[color,{red: attachRed}]"></div>
+    <hr>
+    <input type="text" v-model="color">
+  </div>
+
+      <script>
+      new Vue({
+        el:'#j',
+        data:{
+        attachRed: false,
+        color: 'green'
+        },
+        computed:{
+          divClasses:function(){
+            return{
+              red: this.attachRed,
+              blue: !this.attachRed
+            }
+          }
+        },
+        
+      })
+      </script>  
+    <hr>
+
+      <div id="k">
+        <div class="demo" :style="{'background-color': color}"></div>
+        <div class="demo" :style="[myStyle,{height: width + 'px'}]"></div>
+        <div class="demo" :style="myStyle"></div>
+        <hr>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
+          </div>
+        
+              <script>
+              new Vue({
+                el:'#k',
+               data:{
+                color: 'grey',
+                width: 200
+               },
+               computed:{
+                  myStyle:function(){
+                    return{
+                      backgroundColor: this.color,
+                      width: this.width + 'px'
+                    }
+                  }
+               }
+                
+              })
+              </script> 
+<hr>
+<div id="l">
+    {{title}}
+    <button type="Submit" class="btn btn-primary" v-on:Click="ChangeTitle">Click To Change</button>
+  </div>
+  <script>
+    new Vue({ 
+      el:'#l',
+      data:{
+        title:"bilal Yousuf"
+        },
+        methods:{
+          ChangeTitle:function(){
+            this.title="Muhammad Bilal"
+          }
+      }
+    })
+  </script> 
+<hr>
+
+  <div id="m">
+      {{title}}
+      <br>
+      <input type="text" v-on:input="ChangeTitle">
+    </div>
+    <script>
+      new Vue({
+        el:'#m',
+        data:{
+          title:"bilal Yousuf" 
+          },
+          methods:{
+            ChangeTitle:function(ahmad){
+              this.title=ahmad.target.value
+            }
+        }
+      })
+    </script> 
+  <hr>
+
+    <div id="n">
+      <ul>
+        <li v-for=" todo in todos">
+          {{todo}}
+        </li>
+      </ul>
+
+    </body>
+    <script>
+      new Vue({
+        el:'#n',
+        data:{
+          todos:['vue','vuee','next']
+        }
+
+      })
+    </script> 
+  <hr>
+
+    <div id="o">
+      <form v-on:submit.prevent="addname">
+        <input v-model="currentname" type="text">
+        <button type="submit">Add Name</button>
+      </form>
+        <ul>
+          <li v-for=" (name, index) in names">
+            {{name}} <button v-on:click="deltename()">x</button>
+          </li>
+        </ul>
+  
+      </body>
+      <script>  
+        new Vue({
+          el:'#o',
+          data:{
+            names:['bilal','osama','ahmad'],
+            currentname:''
+          },
+          methods:{
+            addname:function(){
+              this.names.push(this.currentname)
+              this.currentname = '';
+            },
+            deltename:function(index){
+              this.names.splice(index,1)
+            }
+          }
+  
+        })
+      </script> 
+    <hr>
+
+      <div id="p">
+        <form v-on:submit.prevent="addNames">
+          <input v-model="currentname" type="text">
+          <button type="submit">Add Name</button>
+        </form>
+          <ul>
+            <li v-for="names in bilal">
+              {{names}}
+            </li>
+          </ul>
+        </div>
+        <script>
+         new Vue({
+           el:'#p',
+           data:{
+             bilal:['osama','adnan','ahmad'],
+             currentname:''
+           },
+           methods:{
+             addNames:function(){
+               this.names.push(this.currentname)
+               this.currentname = '';
+             }
+           }
+         })
+        </script> 
+      <hr>
+      
+</body>
+</html>
