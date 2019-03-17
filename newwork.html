@@ -1,0 +1,35 @@
+<div id="app">
+   <p v-if="show">You can see me</p>
+   <p v-else>Now you see me</p>
+   <p>Do you want to see me</p>
+   <button v-on:click="show = !show">Press me</button>
+  </div>
+  <script>
+    new Vue({
+      el: "#app",
+      data:{
+        show: true
+       }
+    });
+  </script> 
+<hr>
+<div id="app2">
+<ul>
+  <li v-for="ingredient in ingredients">{{ ingredient }}
+  </li>
+</ul>
+  </div>
+  <script>
+    new Vue({
+      el: "#app2",
+      data:{
+        ingredients: ['meat', 'fruit', 'cookies'],
+        persons: [
+          {name: 'bilal', age:28, color: 'red'},
+          {name: 'bilalaa', age:228, color: 'blue'},
+          
+        ]
+      }
+    });
+  </script> 
+<hr>

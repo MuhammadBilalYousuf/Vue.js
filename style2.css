@@ -1,0 +1,198 @@
+h1:hover{
+background-color: Pink;
+}
+
+button:hover{
+    color: pink;
+}
+input:focus{
+    background-color: pink;
+}
+button:focus{
+    border-radius: 10px;
+    background-color: green;
+}
+button:active{
+    background-color: orange;
+    font-size: 30px;
+}
+h1:active, p:active{
+    color: yellow;
+}
+.btn{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    background-color: blue;
+    font-size: 16px;
+    font-weight: 300px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 25px 80px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 6px purple;
+}
+.btn:hover{
+    box-shadow: 0 4px red;
+    top: 2px;
+}
+.btn:active{
+    box-shadow: none;
+    top: 6px;
+}
+ /* second part */
+p{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+p.move-right{
+    background-color: green;
+    transform: translateX(50px);
+}
+p.move-down{
+    background-color: yellow;
+    transform: translateY(20px);
+}
+p:hover{
+    transform: translate(20px,20px);
+}
+ /* third part */
+ p{
+     width: 50px;
+     height: 50px;
+     background-color: #11aabb;
+     color: #ececec;
+     border: 2px solid #2c2c2c;
+ }
+ .transformed{
+     background-color: #3498db;
+     transform: scale(0.5);
+     transform-origin: right;
+ }
+  /* fourth part */
+.box{
+    background: #9b509b;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    border-radius: 20px;
+}
+/*
+.animated{
+    transition-property: background, border-radius;
+    transition-duration: 5s, 1s;
+    transition-delay: 1s;
+}
+.box:hover{
+    background: #d81919;
+    transform-origin: top left;
+    transform: scale(2);
+    border-radius: 50px;
+     opacity: 0.5; 
+}*/
+
+.animated {
+    transition: transform 2s ease-out 1s, 
+    background-color 0.5s linear;
+/*
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+*/
+}
+.box:hover {
+    transform: translateX(300px);
+    background-color: teal;
+}
+
+  /* fifth part */
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+h1 {
+  text-align: center;
+  font-family: Raleway;
+  color: #34495e;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+
+div.item {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 220px;
+  max-width: 310px;
+  width: 100%;
+  background: #000000;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+div.item * {
+  box-sizing: border-box;
+}
+
+div.item img {
+  max-width: 100%;
+  vertical-align: top;
+  height: 210px;
+}
+
+div.item i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  font-size: 34px;
+  color: #000000;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background: #ffffff;
+}
+
+div.item a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+div.item.blue {
+  background-color: #34495e;
+}
+div.item.blue i {
+  color: #34495e;
+}
+div.item.red {
+  background-color: #e74c3c;
+}
+div.item.red i {
+  color: #e74c3c;
+}
+
+div.item.green {
+  background-color: #16a085;
+}
+div.item.green i {
+  color: #16a085;
+}
+
+div.item:hove img {
+    opacity: 0.3;
+}
+

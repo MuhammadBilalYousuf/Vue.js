@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Small Business Inventory System</title>
+<asp:PlaceHolder runat="server">
+</asp:PlaceHolder>
+<webopt:bundlereference runat="server" path="~/Content/css" />
+<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+<body>
+<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="MyShop_FYP.Account.Login" Async="true" %>
+
+<%--<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>--%>
+
+<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+
+
+<div class = "container">
+    <div class="wrapper">
+        <form action="" method="post" name="Login_Form" class="form-signin">       
+            <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+              <hr class="colorgraph"><br>
+                <td class="control-label" >
+              <input type="text" class="form-control" name="Email" placeholder="Email" required="" autofocus="" />
+                </td>
+                <td>
+                <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" Width="816px" />
+                </td>
+                <td>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail" CssClass="text-danger" Font-Size="Medium" ErrorMessage=" required." /></td>
+
+                <td class="control-label" >
+              <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>
+                </td>
+                <td>
+                <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" Width="816px" />
+                </td>
+                <td>
+                <asp:RequiredFieldValidator runat="server" Font-Size="Medium" ControlToValidate="txtPassword" CssClass="text-danger" ErrorMessage=" required." /></td>            
+         
+                <asp:Button runat="server" OnClick="LogIn" CssClass=" btn btn-primary" Text="Login" EnableTheming="true" />
+                            
+        </form>         
+    </div>
+</div>
+
+
+   
+
+
+</asp:Content>
+
+   <%-- <div class="row" >
+        <div class="col-md-8">
+            <section id="loginForm">
+                <div class="form-horizontal">
+                    <h4>Use a local account to log in.</h4>
+                    
+                      <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                        <p class="text-danger">
+                            <asp:Literal runat="server" ID="FailureText" />
+                        </p>
+                    </asp:PlaceHolder>
+                    <div class="form-group">
+                        <asp:Label runat="server" AssociatedControlID="txtEmail" CssClass="col-md-2 control-label" Font-Size="Medium">User Email</asp:Label>
+                        <div class="col-md-8">
+                            <asp:TextBox runat="server" ID="txtEmail" CssClass="form-control" Width="816px" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmail"
+                                CssClass="text-danger" Font-Size="Medium" ErrorMessage="The user name field is required." />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label runat="server" AssociatedControlID="txtPassword" CssClass="col-md-2 control-label" Font-Size="Medium">Password</asp:Label>
+                        <div class="col-md-8">
+                            <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control" Width="816px" />
+                            <asp:RequiredFieldValidator runat="server" Font-Size="Medium" ControlToValidate="txtPassword" CssClass="text-danger" ErrorMessage="The password field is required." />
+                        </div>
+                    </div>
+                  
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-primary " />
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
+                    if you don't have a local account.
+                </p>
+            </section>
+        </div>
+
+    </div>--%>
+
+
+
+
+
+</form>
+</body>
+</html>      

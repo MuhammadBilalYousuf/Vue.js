@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://unpkg.com/vue@2.4.4/dist/vue.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<!-- <div id="app">
+		<p v-if="show">Show me</p>
+		<p v-else>Its not like that</p>
+		<button v-on:click="show = !show">Switch</button>
+
+	</div>
+	<script>
+	new Vue({
+		el:'#app',
+		data:{
+			show: true
+		}
+	})
+	</script> -->
+
+	 <!-- <div id="app">
+		 <button v-on:click="mess">press me</button>
+		 <p>{{mess}}</p>
+
+	</div>
+	<script>
+	new Vue({
+		el:'#app',
+		data:{
+			mess: "dawood"
+		}
+	})
+	</script> -->
+
+	<div id="app">
+		<p v-if="show">Show Me </p>	
+		<p v-else>dawood</p>
+		<p v-if="show">
+		
+		</p>
+		<button v-on:click="show = !show">Click To See</button>
+		</div>
+		<script>
+		new Vue({
+			el:'#app',
+			data:{
+			show: true
+			}
+		})
+		</script>
+		<hr>
+		
+	<div id="app2">
+			<p v-if="show"></p>
+			<p v-else>dawood</p>
+	
+			
+			</p>
+			<button v-on:click="show = !show">Click To See</button>
+			</div>
+			<script>
+					new Vue({
+						el:'#app2',
+						data:{
+						show: true
+						}
+					})
+					</script>
+					<hr>
+		<!-- <div id="pp">
+			<li v-for="(some, i) in ingredients">{{ some }} ({{ i }})</li>
+
+		</div>
+		<script>
+		new Vue({
+			el:'#pp',
+			data:{
+				ingredients: ['meet','fruit','cookies'],
+				person: [
+					{name: 'Bilal', age: 21, color: 'red'},
+					{name: 'ahmad', age: 'unknown', color: 'blue'}
+				]
+			}
+		})
+		</script>
+		<hr> -->
+		 <!-- <div id="aaa">
+			 <li v-for="(some, i) in ingredients">{{ some }} ({{ i }})</li> 
+			<ul>
+				<template v-for="(ingredient, i) in ingredients">
+					<h1>{{ ingredient }}</h1>
+					<p>{{ i }}</p>
+				</template>
+			</ul>
+		</div>
+		<script>
+		new Vue({
+			el:'#aaa',
+			data:{
+				ingredients: ['meet','fruit','cookies'],
+				person: [
+					{name: 'Bilal', age: 21, color: 'red'},
+					{name: 'ahmad', age: 'unknown', color: 'blue'}
+				]
+			}
+		})
+		</script>
+
+<hr> -->
+<!-- <div id="aaa">
+	 <li v-for="(some, i) in ingredients">{{ some }} ({{ i }})</li>
+	<ul>
+		<hr>
+		<ul>
+			<li v-for=""></li>
+		</ul>
+		<hr>
+		<template v-for="(ingredient, i) in ingredients">
+			<h1>{{ ingredient }}</h1>
+			<p>{{ i }}</p>
+		</template>
+	</ul>
+</div>
+<script>
+new Vue({
+	el:'#aaa',
+	data:{
+		ingredients: ['meet','fruit','cookies'],
+		person: [
+			{name: 'Bilal', age: 21, color: 'red'},
+			{name: 'ahmad', age: 'unknown', color: 'blue'}
+		]
+	}
+})
+</script>
+<hr> -->
+<!-- <style type="text/css">
+span{
+	color: blue
+}
+</style>
+<div id="jd">
+	<input id="text" type="text" v-on:keyup.enter="enter">
+<ul>
+	<li v-for="(val, key) in country"> <span>{{ val }}</span>
+	</li>
+</ul>
+</div>
+<script>
+	new Vue({
+		el:'#jd',
+		data:{
+			country: [
+				"pakistan",
+				"pakistan",
+			"pakistan",
+			"pakistan"
+			]
+		},
+		methods:{
+			enter: function(){
+				name = document.getElementById("text").value;
+				this.country.push(name)
+			}
+		}
+	})
+</script>
+<hr> -->
+<!-- <div id="jdd">
+		<input id="txt" type="text" v-on:keyup.enter="add">
+		<ul>
+			<li v-for="(val, key) in cities">{{val}}</li>
+		</ul>
+	</div>
+	<script>
+		new Vue({
+			el:'#jdd',
+			data:{
+				cities:['karachi','hyderabad','lahore']
+			},
+			methods:{
+				add:function(){
+					var name= document.getElementById("txt").value;
+					this.cities.push(name)
+				}
+			}
+		})
+	</script> -->
+	<hr>
+	
+</body>
+</html>
